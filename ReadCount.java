@@ -53,15 +53,20 @@ public class ReadCount {
 	 * The regular expression only accepts a-z, A-Z and apostrophes. 
 	 * It'll remove any other character. 
 	 */
-	public void wordSearch(){
+	private void wordSearch(){
 		while (read.hasNext()){
-			totalNumberWords++;
+			
 			String temp = null;
 			temp = read.next();
 			temp = temp.toLowerCase();
 			
 			String lettersOnly = temp.replaceAll("[^a-zA-Z ']", "");
-			
+		
+			if(lettersOnly.equals("")){
+				continue;
+			}
+				
+			totalNumberWords++;
 			addHash(lettersOnly);
 		}
 	}
@@ -72,7 +77,7 @@ public class ReadCount {
 	 * If a key is already in the map, it'll increase the key's value by one.
 	 * @param input
 	 */
-	public void addHash(String input){
+	private void addHash(String input){
 		if(map.get(input) == null){
 			map.put(input,1);
 		}
@@ -89,7 +94,8 @@ public class ReadCount {
 	 * @return String
 	 */
 	public String toString(){
-		return "TOTAL = " + totalNumberWords + '\n' + "Unique Words = " + map.size() + "\n" +  map.toString();
+		
+		return "Total = " + totalNumberWords + '\n' + "Unique Words = " + map.size() + "\n-------------\n" +  map.toString();
 	}
 	
 }

@@ -1,0 +1,22 @@
+#Test Document#
+
+I ran several tests to make sure that this works.
+
+To Test my ReadCount class I used three different files.
+
+The first one only had 8 words in it and puncuation between each word.
+This test resulted in the proper output.
+The second and third documents were Hamlet and Sherlock Homes respectively. 
+
+I compared my results with several other students who used the same file. 
+
+We all had the same number of unique and total number of words.
+
+
+
+In order to test the GUI class I had to do a number of different things.
+
+To test the Drag and Drop feature, I tried to drag several different types of files on to the files. Only .txt files were accepted.
+
+I also tried to drop more than one file into the field at once. I made sure that it only took the first file added.
+

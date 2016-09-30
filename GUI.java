@@ -1,4 +1,5 @@
 package application;
+
 import java.io.File;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -18,6 +19,7 @@ import javafx.scene.input.TransferMode;
 
 /**
  * This program is the Graphical representation for the word counter 
+ * it also has main included in it.
  * 
  * @version 1.0
  * 
@@ -58,13 +60,14 @@ public class GUI extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			
+						
 			//textfield
 			initializeDragDrop();
 			display.setEditable(false);
 			
 			//button
 			fileSelect = new Button("Select File");
+			fileSelect.setId("button");
 			
 			//file Selection
 			fileChooser.getExtensionFilters().addAll(
@@ -91,7 +94,7 @@ public class GUI extends Application {
 		                    changeDisplay(readcount.toString());
 		                	}
 		                	catch(Exception exception){
-		                		System.out.println();
+		                		/*DO NOTHING*/
 		                	}
 		                }
 		            });
@@ -167,8 +170,15 @@ public class GUI extends Application {
 			              + "-fx-border-style: solid;");
                 event.acceptTransferModes(TransferMode.COPY);
             }
+            
+            else{
+            	 display.setStyle("-fx-border-color: red;"
+			              + "-fx-border-width: 5;"
+			              + "-fx-background-color: #C6C6C6;"
+			              + "-fx-border-style: solid;");
+            }
         } else {
-            event.consume();
+          event.consume();
         }	
 	}
 	/**
@@ -179,7 +189,6 @@ public class GUI extends Application {
 		final Dragboard db = event.getDragboard();
         boolean success = false;
         if (db.hasFiles()) {
-        	if(db.getFiles().size()==1){
             success = true;
             // Only get the first file from the list
             final File file = db.getFiles().get(0);
@@ -192,10 +201,9 @@ public class GUI extends Application {
                     changeDisplay(readcount.toString());
                 }
             });
-        	}
+        	
         }
         else
-        	System.out.println("Error, one file at a time");
         event.setDropCompleted(success);
         event.consume();
 	}

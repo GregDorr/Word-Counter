@@ -1,0 +1,23 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#TOP{
+	-fx-alignment:center;
+}
+
+#button{
+	-fx-font: 22 arial; 
+	-fx-text-fill: orange;
+	-fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3;
+    -fx-padding: 15 30 15 30;
+   
+}
+
+.root {
+-fx-base: rgb(50, 50, 50);
+-fx-control-inner-background:  rgb(50, 50, 50);
+}
+
+
+
+
+
